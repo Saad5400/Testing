@@ -57,11 +57,11 @@
         secondNum = CharToInt(numAsStr[0]);
 
         // in case it's just 10 * n, like 10 or 20, 30... etc
-        if (numAsStr[1] == '0'){
+        if (firstNum == 0){
             return numToWord[n];
         }
         // in case it's 10 + n | n < 10, like 11, 12, 13, 14... etc
-        else if (numAsStr[1] == '1') {
+        else if (secondNum == 1) {
             return numToWord[n];
         }
         // for the rest of numbers
@@ -82,16 +82,16 @@
             text += ' ';
             text += numToWord[100];
 
-            if (numAsStr[1] == '0') {
+            if (secondNum == 0) {
                 // if there's no number in the 10s, like 101, 203, 309... 
-                if (numAsStr[2] != '0') {
+                if (firstNum != 0) {
                     text += ' ';
                     text += numToWord[firstNum];
                 }
 
             }
             // if there IS a number there, like 110, 240, 550...
-            else if (numAsStr[2] == '0') {
+            else if (firstNum == 0) {
                 text += ' ';
                 text += numToWord[secondNum * 10];
             }
